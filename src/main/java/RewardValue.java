@@ -1,23 +1,26 @@
-public class RewardValue{
-    private double cash;
-    private double miles;
+public class RewardValue {
+    private double cashValue;
+    private double milesValue;
 
-    RewardValue(double cash_input)
-    {
-        cash = cash_input
-    }
-    RewardValue(double miles_input, boolean isMiles)
-    {
-        if (isMiles)
-            miles = miles_input
+    // Constructor that accepts a cash value
+    public RewardValue(double cashValue) {
+        this.cashValue = cashValue;
+        this.milesValue = cashValue / 0.0035;
     }
 
+    // Constructor that accepts a value in miles as an int
+    public RewardValue(int miles) {
+        this.milesValue = miles;
+        this.cashValue = miles * 0.0035;
+    }
+
+    // Getter for cashValue
     public double getCashValue() {
-        return cash;
+        return cashValue;
     }
 
+    // Getter for milesValue
     public double getMilesValue() {
-        miles = cash * 0.0035;
-        return miles;
+        return milesValue;
     }
 }
